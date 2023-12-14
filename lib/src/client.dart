@@ -110,7 +110,7 @@ class Client extends http.BaseClient {
       await refreshCredentials();
     }
 
-    request.headers['authorization'] = 'Bearer ${credentials.accessToken}';
+    request.headers['accessToken'] = credentials.accessToken;
     var response = await _httpClient!.send(request);
 
     if (response.statusCode != 401) return response;
